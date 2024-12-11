@@ -7,6 +7,7 @@ const multer = require("multer");
 const bcrypt = require("bcryptjs");
 const nodemailer = require('nodemailer');
 const { TOTP, Secret } = require('otpauth');
+const APP_LOCATION = require("../helpers")
 
 const router = express.Router();
 const uploadMiddleware = multer({ dest: "/tmp" });
@@ -181,11 +182,11 @@ router.post('/forgot-password', async (req, res) => {
         // send mail with defined transport object
         const info = await transporter.sendMail({
             from: {
-                name: "Mizrach Solutions",
+                name: "Steadycare Solutions",
                 address: process.env.MAIL
             }, // sender address
             to: [email], // list of receivers
-            subject: "Mizrach Notification", // Subject line
+            subject: "STEADYCARE Notification", // Subject line
             // text: req.body.message, // plain text body
             html:
                 `<!DOCTYPE html>
@@ -201,7 +202,7 @@ router.post('/forgot-password', async (req, res) => {
             <body>
               <h3>Password Reset Request</h3>
               <p>
-            <a href="http://localhost:5173/admin/${OtpToken}/${user.id}">Click to reset password</a>
+            <a href="${APP_LOCATION}/admin/${OtpToken}/${user.id}">Click to reset password</a>
             </p>
               <p style="margin-top: 2rem;">Please ignore if you did not initiate request</p>
             </body>

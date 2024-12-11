@@ -18,7 +18,8 @@ const userRoutes = require("./routes/userRoutes")
 const applicationRoutes = require("./routes/jobApplicationRoutes")
 const contactRoutes = require('./routes/contactRoutes')
 const callBackRoutes = require('./routes/callBackRoutes')
-const reviewRoutes = require('./routes/reviewRoutes')
+const reviewRoutes = require('./routes/reviewRoutes');
+
 const app = express();
 
 const port = 4000

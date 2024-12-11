@@ -33,7 +33,7 @@ const salt = bcrypt.genSaltSync(10);
 const secret = process.env.SECRET_KEY;
 
 // app.use(cors());
-app.use(cors({ origin: ["http://localhost:5173", "https://home-care-five.vercel.app", "https://mizrachsolutions.com"] }));
+app.use(cors({ origin: ["http://localhost:5173", "https://steady-care.vercel.app"] }));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
